@@ -20,6 +20,4 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 
 Theme styling from https://github.com/VinceG/Bootstrap-Admin-Theme-3
 
-## Data Generated using
-
-https://www.mockaroo.com/
+Data generated from https://www.mockaroo.com/
