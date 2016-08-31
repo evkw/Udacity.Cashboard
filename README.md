@@ -1,4 +1,6 @@
-# Angular 2 seed RC4 with Material Design
+# Cashboard - Coporate Dashboard
+
+Project 4 of the Udacity Senior Web Developer nanodegree
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.10.
 
@@ -18,6 +20,4 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 
 Theme styling from https://github.com/VinceG/Bootstrap-Admin-Theme-3
 
-## Data Generated using
-
-https://www.mockaroo.com/
+Data generated from https://www.mockaroo.com/
