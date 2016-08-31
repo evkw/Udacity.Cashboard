@@ -1,4 +1,6 @@
-# Angular 2 seed RC4 with Material Design
+# Cashboard - Coporate Dashboard
+
+Project 4 of the Udacity Senior Web Developer nanodegree
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.10.
 
