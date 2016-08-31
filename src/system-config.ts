@@ -10,7 +10,7 @@
 /** Map relative paths to URLs. */
 const map: any = {
   'jquery': 'vendor/jquery/dist/jquery.min.js',
-  'bootstrap': 'vendor/bootstrap/dist/js/bootstrap.min.js',
+  'primeng': 'vendor/primeng',
 };
 
 /** User packages configuration. */
@@ -18,16 +18,11 @@ const packages: any = {
   'jquery': {
     format: 'global'
   },
-  'bootstrap': {
-    format: 'global'
+  'primeng': {
+    defaultExtension: 'js'
   }
 };
 
-const meta: any = {
-  'bootstrap': {
-    deps: ['jquery']
-  }
-};
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************
@@ -72,4 +67,4 @@ System.config({
 });
 
 // Apply the user's configuration.
-System.config({ map, meta, packages });
+System.config({ map, packages });

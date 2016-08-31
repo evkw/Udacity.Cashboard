@@ -18,8 +18,10 @@ module.exports = function(defaults) {
       '@angular/**/*.+(js|js.map)',
       '@angular2-material/**/*',
       'jquery/dist/jquery.min.js',
-      'bootstrap/dist/css/bootstrap.min.css',
-      'bootstrap/dist/js/bootstrap.min.js',
+      'font-awesome/css/font-awesome.min.css',
+      'primeng/**/*.js',
+      'primeng/resources/primeng.min.css',
+      'primeng/resources/themes/omega/theme.css',
     ]
   });
 };
