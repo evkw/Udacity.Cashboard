@@ -1,4 +1,6 @@
-export class RestaurantReviewerPage {
+import { browser, element, by } from 'protractor/globals';
+
+export class CashboardPage {
   navigateTo() {
     return browser.get('/');
   }

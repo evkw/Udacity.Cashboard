@@ -1,10 +1,10 @@
-import { RestaurantReviewerPage } from './app.po';
+import { CashboardPage } from './app.po';
 
-describe('restaurant-reviewer App', function() {
-  let page: RestaurantReviewerPage;
+describe('cashboard App', function() {
+  let page: CashboardPage;
 
   beforeEach(() => {
-    page = new RestaurantReviewerPage();
+    page = new CashboardPage();
   });
 
   it('should display message saying app works', () => {
