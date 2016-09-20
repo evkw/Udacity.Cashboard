@@ -1,3 +1,18 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-layout>
+
+  <md-sidenav #sidenav mode="side" class="app-sidenav">
+    <md-nav-list>
+      <a md-list-item routerLink="/assettracker" routerLinkActive="active">Asset Tracker</a>
+      <a md-list-item routerLink="/issues/admin" routerLinkActive="active">Issue Admin</a>
+      <a md-list-item routerLink="/issues" routerLinkActive="active">Issues</a>
+    </md-nav-list>
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+    <button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button> Cashboard
+
+  </md-toolbar>
+  <router-outlet></router-outlet>
+</md-sidenav-layout>
