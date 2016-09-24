@@ -1,3 +1,10 @@
-<p>
-  asset-tracker works!
-</p>
+<sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="2">
+  <sebm-google-map-marker *ngFor="let location of assetLocations; let i = index"
+  [latitude]="location.lat" 
+  [longitude]="location.lng">
+
+     <sebm-google-map-info-window>
+          <strong>Employee Number: {{location.employeeNumber}}</strong>
+        </sebm-google-map-info-window>
+  </sebm-google-map-marker>
+</sebm-google-map>

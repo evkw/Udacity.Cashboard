@@ -1,4 +1,4 @@
-id,long,lat,employeeNumber
+id,lng,lat,employeeNumber
 1,31.13571,30.12303,37
 2,72.92635,55.24242,58
 3,106.98577,29.51066,92

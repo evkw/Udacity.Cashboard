@@ -9,12 +9,14 @@ import { MdSidenavModule } from '@angular2-material/sidenav';
 import { MdToolbarModule } from '@angular2-material/toolbar';
 import { MdListModule } from '@angular2-material/list';
 import { MdIconModule } from '@angular2-material/icon';
+import { AgmCoreModule } from 'angular2-google-maps/core'
 
 import { AppComponent } from './app.component';
 import { AssetTrackerComponent } from './asset-tracker/asset-tracker.component';
 import { IssueAdminComponent } from './issue-admin/issue-admin.component';
 import { IssuesComponent } from './issues/issues.component';
 import { routing } from './app.routing';
+import { AssetTrackerService } from './asset-tracker/asset-tracker.service';
 
 @NgModule({
   declarations: [
@@ -25,20 +27,25 @@ import { routing } from './app.routing';
     
   ],
   imports: [
+    // Native modules
     BrowserModule,
     FormsModule,
     HttpModule,
-
+    // Routing
     routing,
-
+    // Material Design
     MdCoreModule,
     MdProgressCircleModule,
     MdSidenavModule,
     MdToolbarModule,
     MdListModule,
-    MdIconModule
+    MdIconModule,
+    // Google maps
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAneeLICbof-pPXZ5d861pBvuFoiuQQMqM'
+    })
   ],
-  providers: [],
+  providers: [AssetTrackerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
