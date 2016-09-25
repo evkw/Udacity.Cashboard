@@ -26,6 +26,7 @@ import { UserService } from './user-count/user.service';
 import { IssueCountService } from './issue-count/issue-count.service';
 import { IssuesOverTimeComponent } from './issues-over-time/issues-over-time.component';
 import { IssuesOverTimeService } from './issues-over-time/issues-over-time.service';
+import { IssueService } from './issues/issue.service';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { IssuesOverTimeService } from './issues-over-time/issues-over-time.servi
     AssetTrackerService,
     UserService,
     IssueCountService,
-    IssuesOverTimeService
+    IssuesOverTimeService,
+    IssueService
   ],
   bootstrap: [AppComponent]
 })
