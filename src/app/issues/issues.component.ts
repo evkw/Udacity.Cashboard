@@ -1,5 +1,4 @@
 import { Component, NgZone, AfterViewInit } from '@angular/core';
-import { NG_TABLE_DIRECTIVES } from 'ng2-table';
 import { IssueService } from './issue.service';
 
 var $ = require('jquery');
