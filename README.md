@@ -1,23 +1,15 @@
-# Cashboard - Coporate Dashboard
+# Cashboard
 
-Project 4 of the Udacity Senior Web Developer nanodegree
-
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.10.
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.14.
 
 ## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a development server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## Production server
+Run `ng serve --prod` for production server. Navigate to `http://localhost:4200/`
 
-## Build
+## References
+SVG to Javascript object: https://jsfiddle.net/barney/7vpAJ/ (enhanced a little)
+Data generation: https://www.mockaroo.com/
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-## Bibliography? References? Not sure what to call this part
-
-Theme styling from https://github.com/VinceG/Bootstrap-Admin-Theme-3
-
-Data generated from https://www.mockaroo.com/
+Google maps: https://github.com/SebastianM/angular2-google-maps
