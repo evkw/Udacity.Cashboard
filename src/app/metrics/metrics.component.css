@@ -1,0 +1,23 @@
+.card-container {
+    display:flex;
+    flex-direction: row;
+}
+
+
+.chart-card, .open-issue-counter {
+    width: 45%;
+    margin: 7px;
+}
+
+.open-issue-counter {
+    margin-left: 25%;
+}
+
+@media (max-width: 480px) {
+    .card-container {
+        flex-direction: column;
+    }
+    .chart-card {
+        width: 95%;
+    }
+}

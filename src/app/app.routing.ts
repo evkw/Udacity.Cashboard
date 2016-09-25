@@ -1,6 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 import { AssetTrackerComponent } from './asset-tracker/asset-tracker.component';
-import { IssueAdminComponent } from './issue-admin/issue-admin.component';
+import { MetricsComponent } from './metrics/metrics.component';
 import { IssuesComponent } from './issues/issues.component';
 
 const appRoutes: Routes = [
@@ -14,8 +14,8 @@ const appRoutes: Routes = [
     component: AssetTrackerComponent
   },
     {
-    path: 'issues/admin',
-    component: IssueAdminComponent
+    path: 'metrics',
+    component: MetricsComponent
   },
     {
     path: 'issues',

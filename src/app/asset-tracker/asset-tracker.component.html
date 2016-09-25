@@ -1,5 +1,5 @@
 <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="2">
-  <sebm-google-map-marker *ngFor="let location of assetLocations; let i = index"
+  <sebm-google-map-marker *ngFor="let location of assetLocations"
   [latitude]="location.lat" 
   [longitude]="location.lng">
 
