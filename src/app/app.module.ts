@@ -9,22 +9,33 @@ import { MdSidenavModule } from '@angular2-material/sidenav';
 import { MdToolbarModule } from '@angular2-material/toolbar';
 import { MdListModule } from '@angular2-material/list';
 import { MdIconModule } from '@angular2-material/icon';
+import { MdCardModule } from '@angular2-material/card';
+
 import { AgmCoreModule } from 'angular2-google-maps/core'
+import { ChartsModule } from 'ng2-charts/ng2-charts'
 
 import { AppComponent } from './app.component';
 import { AssetTrackerComponent } from './asset-tracker/asset-tracker.component';
-import { IssueAdminComponent } from './issue-admin/issue-admin.component';
 import { IssuesComponent } from './issues/issues.component';
 import { routing } from './app.routing';
 import { AssetTrackerService } from './asset-tracker/asset-tracker.service';
+import { MetricsComponent } from './metrics/metrics.component';
+import { UserCountComponent } from './user-count/user-count.component';
+import { IssueCountComponent } from './issue-count/issue-count.component';
+import { UserService } from './user-count/user.service';
+import { IssueCountService } from './issue-count/issue-count.service';
+import { IssuesOverTimeComponent } from './issues-over-time/issues-over-time.component';
+import { IssuesOverTimeService } from './issues-over-time/issues-over-time.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     AssetTrackerComponent,
-    IssueAdminComponent,
     IssuesComponent,
-    
+    MetricsComponent,
+    UserCountComponent,
+    IssueCountComponent,
+    IssuesOverTimeComponent,
   ],
   imports: [
     // Native modules
@@ -40,12 +51,21 @@ import { AssetTrackerService } from './asset-tracker/asset-tracker.service';
     MdToolbarModule,
     MdListModule,
     MdIconModule,
+    MdCardModule,
     // Google maps
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAneeLICbof-pPXZ5d861pBvuFoiuQQMqM'
-    })
+    }),
+    // ng2 Charts
+    ChartsModule
   ],
-  providers: [AssetTrackerService],
+  providers:
+  [
+    AssetTrackerService,
+    UserService,
+    IssueCountService,
+    IssuesOverTimeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
