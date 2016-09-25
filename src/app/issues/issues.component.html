@@ -1,3 +1,25 @@
-<p>
-  issues works!
-</p>
+<div class="form-group" style="max-width: 25%">
+<label for="state">State Filter:</label>
+<select id="state" class="form-control" *ngIf="config.filtering" [ngTableFiltering]="config.filtering" (tableChanged)="onChangeTable(config)">
+  <option value="">All</option>
+  <option value="Open">Open</option>
+  <option value="Closed">Closed</option>
+</select>
+</div>
+
+<ng-table [config]="config.sorting"
+           (tableChanged)="onChangeTable(config)"
+           [rows]="rows" [columns]="columns">
+</ng-table>
+<pagination *ngIf="config.paging"
+            class="pagination-sm"
+            [(ngModel)]="page"
+            [totalItems]="length"
+            [itemsPerPage]="itemsPerPage"
+            [maxSize]="maxSize"
+            [boundaryLinks]="true"
+            [rotate]="false"
+            (pageChanged)="onChangeTable(config, $event)"
+            (numPages)="numPages = $event">
+</pagination>
+<pre *ngIf="config.paging" class="card card-block card-header">Page: {{page}} / {{numPages}}</pre>

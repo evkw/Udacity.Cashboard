@@ -13,6 +13,8 @@ import { MdCardModule } from '@angular2-material/card';
 
 import { AgmCoreModule } from 'angular2-google-maps/core'
 import { ChartsModule } from 'ng2-charts/ng2-charts'
+import { Ng2TableModule } from 'ng2-table/ng2-table';
+import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { AppComponent } from './app.component';
 import { AssetTrackerComponent } from './asset-tracker/asset-tracker.component';
@@ -26,6 +28,7 @@ import { UserService } from './user-count/user.service';
 import { IssueCountService } from './issue-count/issue-count.service';
 import { IssuesOverTimeComponent } from './issues-over-time/issues-over-time.component';
 import { IssuesOverTimeService } from './issues-over-time/issues-over-time.service';
+import { IssueService } from './issues/issue.service';
 
 @NgModule({
   declarations: [
@@ -57,14 +60,18 @@ import { IssuesOverTimeService } from './issues-over-time/issues-over-time.servi
       apiKey: 'AIzaSyAneeLICbof-pPXZ5d861pBvuFoiuQQMqM'
     }),
     // ng2 Charts
-    ChartsModule
+    ChartsModule,
+    // ng2 table
+    Ng2TableModule,
+    Ng2BootstrapModule
   ],
   providers:
   [
     AssetTrackerService,
     UserService,
     IssueCountService,
-    IssuesOverTimeService
+    IssuesOverTimeService,
+    IssueService
   ],
   bootstrap: [AppComponent]
 })
