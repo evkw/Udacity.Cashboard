@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 
 @Injectable()
 export class IssuesOverTimeService {
-
+    
     constructor(private http: Http) { }
 
     getIssuesOverTime() {

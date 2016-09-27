@@ -32,9 +32,7 @@ export class IssuesComponent {
 
   private data: any[] = [];
 
-  public constructor(
-    private zone: NgZone,
-    private issueSvc: IssueService) {
+  public constructor(private issueSvc: IssueService) {
     this.issueSvc.getIssues()
       .subscribe(issues => {
         this.data = issues;

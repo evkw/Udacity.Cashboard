@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/Rx';
+
 @Injectable()
 export class IssueCountService {
     
+    public counter = 0;
+
     constructor(private http: Http) { }
 
+    openIssue$  = Observable.range(0, 100);
+
     getOpenIssueCount() {
-        //  Observable.count() didnt want to work for me for some reason.
         return this.http.get('../../assets/issues.json')
             .map(res => res.json())
             .map(issues => {
-                return issues.filter(x => { return x.state === 'Open' }).length
+                return this.counter = issues.filter(x => { return x.state === 'Open' }).length
             })
     }
 }
