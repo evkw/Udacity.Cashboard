@@ -35,7 +35,7 @@ export class IssuesComponent implements OnInit, OnDestroy {
       .subscribe(x => {
         this.data = x;
         if (this.issueCount < this.data.length) {
-          this.afterDataLoad();
+          this.afterDataLoad(true);
         }
       })
   }
@@ -44,7 +44,11 @@ export class IssuesComponent implements OnInit, OnDestroy {
     this.observer.unsubscribe();
   }
 
-  afterDataLoad() {
+  afterDataLoad(reload:boolean = false) {
+    if(reload) {
+      $('#example').DataTable.destroy();
+    }
+    
     $('#example').DataTable({
       data: this.data,
       columns: [
