@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/Rx';
+import * as Rx from 'rxjs/Rx';
 
 import { IssueCountService } from './issue-count.service';
 
@@ -13,11 +12,18 @@ import { IssueCountService } from './issue-count.service';
 export class IssueCountComponent {
 
   public openIssueCount: number;
+  public observer
 
-  constructor(private countSvc: IssueCountService) {
-    this.countSvc.getOpenIssueCount()
-      .subscribe(issueCount => {
-        this.openIssueCount = issueCount;
-      });
+  constructor(private countSvc: IssueCountService) {}
+
+  ngOnInit() {
+    this.observer = Rx.Observable.interval(1000)
+      .exhaustMap(() => this.countSvc.getOpenIssueCount())
+      .startWith(0)
+      .subscribe(x => this.openIssueCount = x)
+  }
+
+  ngOnDestroy() {
+    this.observer.unsubscribe();
   }
 }
