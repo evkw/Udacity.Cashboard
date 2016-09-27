@@ -16,10 +16,13 @@ export class IssueService {
         let list: string[][] = [];
         issues.forEach(issue => {
             let subList: string[] = [];
-            subList.push(issue.id);
+            subList.push(issue.submitted);
             subList.push(issue.state);
-            subList.push(issue.raised);
-            subList.push(issue.comments);
+            subList.push(issue.closed);
+            subList.push(issue.description);
+            subList.push(issue.customerName);
+            subList.push(issue.customerEmail);
+            subList.push(issue.employeeName);
             list.push(subList);
         })
         return list;

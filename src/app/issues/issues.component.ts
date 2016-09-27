@@ -1,57 +1,60 @@
-import { Component, NgZone, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit, OnDestroy } from '@angular/core';
 import { IssueService } from './issue.service';
+
+import * as Rx from 'rxjs/Rx';
 
 var $ = require('jquery');
 var dataTable = require('datatables');
 $.fn.DataTable = dataTable;
 
-$.extend( $.fn.dataTableExt.oSort, {
-    "date-uk-pre": function ( a ) {
-        if (a == null || a == "") {
-            return 0;
-        }
-        var ukDatea = a.split('/');
-        return (ukDatea[2] + ukDatea[1] + ukDatea[0]) * 1;
-    },
- 
-    "date-uk-asc": function ( a, b ) {
-      console.log('t4');
-        return ((a < b) ? -1 : ((a > b) ? 1 : 0));
-    },
- 
-    "date-uk-desc": function ( a, b ) {
-        return ((a < b) ? 1 : ((a > b) ? -1 : 0));
-    }
-} );
-
 @Component({
   selector: 'app-issues',
   templateUrl: './issues.component.html'
 })
-export class IssuesComponent {
+export class IssuesComponent implements OnInit, OnDestroy {
 
   private data: any[] = [];
+  private observer;
+  private issueCount;
+
 
   public constructor(private issueSvc: IssueService) {
     this.issueSvc.getIssues()
-      .subscribe(issues => {
-        this.data = issues;
+      .subscribe(x => {
+        this.issueCount = x.length;
+        this.data = x;
         this.afterDataLoad();
-      });
+      })
+  }
+
+
+  ngOnInit() {
+    this.observer = Rx.Observable.interval(1000)
+      .exhaustMap(() => this.issueSvc.getIssues())
+      .startWith(0)
+      .subscribe(x => {
+        this.data = x;
+        if (this.issueCount < this.data.length) {
+          this.afterDataLoad();
+        }
+      })
+  }
+
+  ngOnDestroy() {
+    this.observer.unsubscribe();
   }
 
   afterDataLoad() {
-    console.log(this.data);
     $('#example').DataTable({
       data: this.data,
-      columnDefs: [
-       { type: 'date-uk', targets: 2 }
-     ],
       columns: [
-        { title: "id" },
+        { title: "submitted" },
         { title: "state" },
-        { title: "raised", type: "date-uk" },
-        { title: "comments" }
+        { title: "closed" },
+        { title: "description" },
+        { title: "customerName" },
+        { title: "customerEmail" },
+        { title: "employeeName" }
       ]
     });
   }
