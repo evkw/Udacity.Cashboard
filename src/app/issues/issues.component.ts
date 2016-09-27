@@ -48,13 +48,13 @@ export class IssuesComponent implements OnInit, OnDestroy {
     $('#example').DataTable({
       data: this.data,
       columns: [
-        { title: "submitted" },
-        { title: "state" },
-        { title: "closed" },
-        { title: "description" },
-        { title: "customerName" },
-        { title: "customerEmail" },
-        { title: "employeeName" }
+        { title: "Submitted" },
+        { title: "State" },
+        { title: "Time Closed" },
+        { title: "Description" },
+        { title: "Customer Name" },
+        { title: "Customer Email" },
+        { title: "Employee Email" }
       ]
     });
   }
