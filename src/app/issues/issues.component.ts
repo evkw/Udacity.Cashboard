@@ -1,5 +1,4 @@
 import { Component, NgZone, AfterViewInit } from '@angular/core';
-import { NG_TABLE_DIRECTIVES } from 'ng2-table';
 import { IssueService } from './issue.service';
 
 var $ = require('jquery');
@@ -33,9 +32,7 @@ export class IssuesComponent {
 
   private data: any[] = [];
 
-  public constructor(
-    private zone: NgZone,
-    private issueSvc: IssueService) {
+  public constructor(private issueSvc: IssueService) {
     this.issueSvc.getIssues()
       .subscribe(issues => {
         this.data = issues;

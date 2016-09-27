@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
-import 'rxjs/operator/count';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/Rx';
 
 import { IssueCountService } from './issue-count.service';
 
@@ -15,6 +16,8 @@ export class IssueCountComponent {
 
   constructor(private countSvc: IssueCountService) {
     this.countSvc.getOpenIssueCount()
-      .subscribe(issueCount => this.openIssueCount = issueCount);
+      .subscribe(issueCount => {
+        this.openIssueCount = issueCount;
+      });
   }
 }
