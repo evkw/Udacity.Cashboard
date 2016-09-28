@@ -9,7 +9,7 @@ import { IssueCountService } from './issue-count.service';
   templateUrl: './issue-count.component.html',
   styleUrls: ['./issue-count.component.css']
 })
-export class IssueCountComponent {
+export class IssueCountComponent implements OnInit, OnDestroy {
 
   public openIssueCount: number;
   public observer

@@ -1,15 +1,16 @@
-import { Component, AfterViewInit, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IssueService } from './issue.service';
 
 import * as Rx from 'rxjs/Rx';
 
-var $ = require('jquery');
-var dataTable = require('datatables');
+let $ = require('jquery');
+let dataTable = require('datatables');
 $.fn.DataTable = dataTable;
 
 @Component({
   selector: 'app-issues',
-  templateUrl: './issues.component.html'
+  templateUrl: './issues.component.html',
+  styleUrls: ['./issues.component.css']
 })
 export class IssuesComponent implements OnInit, OnDestroy {
 
@@ -24,7 +25,7 @@ export class IssuesComponent implements OnInit, OnDestroy {
         this.issueCount = x.length;
         this.data = x;
         this.afterDataLoad();
-      })
+      });
   }
 
 
@@ -34,7 +35,8 @@ export class IssuesComponent implements OnInit, OnDestroy {
       .startWith(0)
       .subscribe(x => {
         this.data = x;
-        if (this.issueCount < this.data.length) {
+        if (this.issueCount !== this.data.length) {
+          this.issueCount = this.data.length;
           this.afterDataLoad(true);
         }
       })
@@ -44,21 +46,22 @@ export class IssuesComponent implements OnInit, OnDestroy {
     this.observer.unsubscribe();
   }
 
-  afterDataLoad(reload:boolean = false) {
-    if(reload) {
+  afterDataLoad(reload = false) {
+    if (reload) {
       $('#example').DataTable.destroy();
     }
-    
+
     $('#example').DataTable({
+      responsive: true,
       data: this.data,
       columns: [
-        { title: "Submitted" },
-        { title: "State" },
-        { title: "Time Closed" },
-        { title: "Description" },
-        { title: "Customer Name" },
-        { title: "Customer Email" },
-        { title: "Employee Email" }
+        { title: 'Submitted' },
+        { title: 'State' },
+        { title: 'Time Closed' },
+        { title: 'Description' },
+        { title: 'Customer Name' },
+        { title: 'Customer Email' },
+        { title: 'Employee Email' }
       ]
     });
   }
